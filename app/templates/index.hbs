@@ -1,0 +1,21 @@
+<div class="jumbotron text-center">
+    <div class="form-horizontal form-group form-group-lg row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
+          {{input class="form-control" autofocus="autofocus" placeholder="Search for city..." value=cityName}}
+        </div>
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
+          <button class="btn btn-primary btn-lg btn-block" {{action 'searchWeather'}}>Search Weather</button>
+        </div>
+    </div>
+</div>
+
+<div style="clear:both"></div>
+
+{{#if forecasts}}
+  <h3 style="margin-left: 20px;">{{forecasts.city_name}}</h3>
+  <div>
+    {{#each forecasts.list as |fc|}}
+      {{#forecast-item item=fc}}{{/forecast-item}}
+    {{/each}}
+  </div>
+{{/if}}
